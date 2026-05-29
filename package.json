@@ -1,0 +1,18 @@
+{
+  "name": "office-ai-addin",
+  "version": "1.0.0",
+  "description": "Microsoft 365 AI Add-in powered by DeepSeek API",
+  "scripts": {
+    "start": "node_modules\\.bin\\http-server . -p 3000 --ssl --cert certs\\localhost.crt --key certs\\localhost.key -c-1"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "office-addin-dev-certs": "^1.13.0",
+    "node-forge": "^1.3.1"
+  },
+  "devDependencies": {
+    "office-addin-debugging": "^6.1.1"
+  },
+  "author": "AI Office Assistant",
+  "license": "MIT"
+}

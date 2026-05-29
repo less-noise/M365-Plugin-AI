@@ -1,0 +1,341 @@
+/**
+ * 共用 UI 样式
+ * 整体风格：简洁白色背景，与 Office 原生 UI 视觉一致
+ */
+
+/* 基础样式 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  padding: 16px;
+}
+
+/* 标题栏 */
+.header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 16px;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0078D4;
+}
+
+.header-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+/* 分隔线 */
+.separator {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 12px 0;
+}
+
+/* 标签文字 */
+.label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin: 4px 0;
+}
+
+.btn-primary {
+  background-color: #0078D4;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #106ebe;
+}
+
+.btn-primary:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #d0d0d0;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-success {
+  background-color: #107c10;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background-color: #0b6b0b;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* 预览框 */
+.preview-box {
+  background-color: #f3f3f3;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.preview-box:empty::before {
+  content: '暂无内容';
+  color: #999;
+}
+
+/* 单选按钮组 */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #0078D4;
+}
+
+.radio-item label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* 文本输入框 */
+.text-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 60px;
+  font-family: inherit;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #0078D4;
+}
+
+.text-input::placeholder {
+  color: #999;
+}
+
+/* 单行输入框 */
+.text-input-single {
+  min-height: 36px;
+  resize: none;
+}
+
+/* 结果显示区 */
+.result-box {
+  background-color: #f3f3f3;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 100px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.6;
+}
+
+.result-box:empty::before {
+  content: '等待 AI 响应...';
+  color: #999;
+}
+
+/* 加载状态 */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #0078D4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 错误提示 */
+.error-box {
+  background-color: #fff4f4;
+  border: 1px solid #ff6b6b;
+  border-radius: 4px;
+  padding: 12px;
+  color: #d63031;
+  margin-bottom: 12px;
+}
+
+.error-icon {
+  margin-right: 8px;
+}
+
+/* 成功提示 */
+.success-box {
+  background-color: #f0fff0;
+  border: 1px solid #107c10;
+  border-radius: 4px;
+  padding: 12px;
+  color: #107c10;
+  margin-bottom: 12px;
+}
+
+/* 信息提示 */
+.info-box {
+  background-color: #f0f8ff;
+  border: 1px solid #0078D4;
+  border-radius: 4px;
+  padding: 12px;
+  color: #0078D4;
+  margin-bottom: 12px;
+}
+
+/* 选区信息 */
+.selection-info {
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* 操作按钮组 */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* 复制成功提示 */
+.copy-success {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #107c10;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.copy-success.show {
+  opacity: 1;
+}
+
+/* 功能区域 */
+.section {
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* 占位提示 */
+.placeholder-hint {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* 响应式调整 */
+@media (max-width: 300px) {
+  body {
+    padding: 12px;
+  }
+  
+  .btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  .header-title {
+    font-size: 16px;
+  }
+}

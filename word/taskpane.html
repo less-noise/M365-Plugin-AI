@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word AI 助手</title>
+  
+  <!-- Office.js -->
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  
+  <!-- 共用样式 -->
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+  <!-- 标题栏 -->
+  <div class="header">
+    <span class="header-icon">📝</span>
+    <span class="header-title">Word AI 助手</span>
+  </div>
+  
+  <!-- 步骤1：获取选中文字 -->
+  <div class="section">
+    <div class="label">步骤 1：获取文档内容</div>
+    <button id="getSelectionBtn" class="btn btn-secondary btn-block">📄 获取选中文字</button>
+    <div class="separator"></div>
+    <div class="preview-box" id="previewBox"></div>
+  </div>
+  
+  <!-- 步骤2：功能选择 -->
+  <div class="section">
+    <div class="label">步骤 2：选择处理功能</div>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" id="funcPolish" name="function" value="polish" checked>
+        <label for="funcPolish">学术润色</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcFormat" name="function" value="format">
+        <label for="funcFormat">格式整理</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcTone" name="function" value="tone">
+        <label for="funcTone">语气调整</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcSummary" name="function" value="summary">
+        <label for="funcSummary">生成摘要</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcExtend" name="function" value="extend">
+        <label for="funcExtend">续写扩展</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 步骤3：附加说明 -->
+  <div class="section">
+    <div class="label">步骤 3：附加说明（可选）</div>
+    <input type="text" class="text-input text-input-single" id="additionalInput" 
+           placeholder="例如：语气更正式一些 / 保留专业术语">
+  </div>
+  
+  <!-- 步骤4：开始处理 -->
+  <div class="section">
+    <button id="processBtn" class="btn btn-primary btn-block">▶ 开始处理</button>
+  </div>
+  
+  <!-- 步骤5：AI 结果 -->
+  <div class="section">
+    <div class="label">AI 结果：</div>
+    <div class="result-box" id="resultBox"></div>
+    <div class="action-buttons">
+      <button id="replaceBtn" class="btn btn-success btn-small" disabled>✅ 替换原文</button>
+      <button id="copyBtn" class="btn btn-secondary btn-small" disabled>📋 复制</button>
+    </div>
+  </div>
+  
+  <!-- 加载状态 -->
+  <div class="loading" id="loadingDiv" style="display: none;">
+    <div class="loading-spinner"></div>
+    <span class="loading-text">AI 正在处理中...</span>
+  </div>
+  
+  <!-- 错误提示 -->
+  <div class="error-box" id="errorBox" style="display: none;"></div>
+  
+  <!-- 复制成功提示 -->
+  <div class="copy-success" id="copySuccess">已复制到剪贴板</div>
+  
+  <!-- 引入共用模块 -->
+  <script src="../shared/config-loader.js"></script>
+  <script src="../shared/api.js"></script>
+  
+  <!-- 主逻辑 -->
+  <script src="taskpane.js"></script>
+</body>
+</html>

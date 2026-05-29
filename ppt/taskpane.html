@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPT AI 助手</title>
+  
+  <!-- Office.js -->
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  
+  <!-- 共用样式 -->
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+  <!-- 标题栏 -->
+  <div class="header">
+    <span class="header-icon">🎯</span>
+    <span class="header-title">PPT AI 助手</span>
+  </div>
+  
+  <!-- 功能选择 -->
+  <div class="section">
+    <div class="label">选择生成功能：</div>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" id="funcOutline" name="function" value="outline" checked>
+        <label for="funcOutline">生成演讲大纲</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcContent" name="function" value="content">
+        <label for="funcContent">生成幻灯片文字内容</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="funcNotes" name="function" value="notes">
+        <label for="funcNotes">为当前幻灯片生成备注</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 主题/内容输入 -->
+  <div class="section">
+    <div class="label">主题 / 内容输入：</div>
+    <textarea class="text-input" id="userInput" rows="4" placeholder="请输入演讲或报告主题..."></textarea>
+    <div class="placeholder-hint" id="placeholderHint">示例：人工智能在医疗领域的应用现状与前景</div>
+  </div>
+  
+  <!-- 开始生成 -->
+  <div class="section">
+    <button id="processBtn" class="btn btn-primary btn-block">▶ 开始生成</button>
+  </div>
+  
+  <!-- 生成结果 -->
+  <div class="section">
+    <div class="label">生成结果：</div>
+    <div class="result-box" id="resultBox"></div>
+    <div class="action-buttons">
+      <button id="copyBtn" class="btn btn-secondary btn-small" disabled>📋 复制结果</button>
+    </div>
+  </div>
+  
+  <!-- 加载状态 -->
+  <div class="loading" id="loadingDiv" style="display: none;">
+    <div class="loading-spinner"></div>
+    <span class="loading-text">AI 正在生成中...</span>
+  </div>
+  
+  <!-- 错误提示 -->
+  <div class="error-box" id="errorBox" style="display: none;"></div>
+  
+  <!-- 复制成功提示 -->
+  <div class="copy-success" id="copySuccess">已复制到剪贴板</div>
+  
+  <!-- 引入共用模块 -->
+  <script src="../shared/config-loader.js"></script>
+  <script src="../shared/api.js"></script>
+  
+  <!-- 主逻辑 -->
+  <script src="taskpane.js"></script>
+</body>
+</html>
