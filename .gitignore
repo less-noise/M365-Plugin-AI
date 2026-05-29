@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Certificates and keys
+certs/
+*.pem
+*.key
+*.pfx
+*.cer
+*.crt
+
+# Config and environment variables
+config/
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Office temp files
+~$*
+*.tmp
